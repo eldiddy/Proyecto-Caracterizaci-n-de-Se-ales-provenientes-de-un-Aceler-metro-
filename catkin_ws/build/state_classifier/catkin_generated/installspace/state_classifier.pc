@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/install
+
+Name: state_classifier
+Description: Description of state_classifier
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

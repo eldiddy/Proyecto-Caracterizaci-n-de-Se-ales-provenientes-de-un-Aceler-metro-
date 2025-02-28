@@ -1,0 +1,11 @@
+prefix=/root/catkin_ws/install
+exec_prefix=/root/catkin_ws/install
+libdir=/root/catkin_ws/install/lib
+includedir=/root/catkin_ws/install/include
+
+Name: libopcuacore
+Description: Opcua core infrastructure.
+Version: 
+Cflags: -I${includedir}
+Libs: -L${libdir} -lopcuacore
+

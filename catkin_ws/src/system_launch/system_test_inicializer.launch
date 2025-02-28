@@ -1,0 +1,26 @@
+<!-- Utilizado para pruebas con rosbags, sin conectarse a VSE002-->
+
+<launch>
+    <!-- Client Node-->
+    <arg name="namespace" default="opcua"/>
+    <arg name="node_name" default="opcua_client"/>
+
+    <node ns="$(arg namespace)" name="$(arg node_name)" pkg="ros_opcua_impl_freeopcua" type="client_node" output="screen">
+    </node>
+
+
+    <!-- Scaled Node-->
+	<node name="scaled_data_processor_node" pkg="scaled_data_processor" type="scaled_data_processor_node" output="screen"/>
+
+
+    <!-- RMS Node-->
+    <node name="rms_data_processor_node" pkg="rms_data_processor" type="rms_data_processor_node" output="screen" />
+
+
+    <!-- MFCC Node -->
+    <node pkg="mfcc_data_processor" type="mfcc_node.py" name="mfcc_processor_node" output="screen" launch-prefix="python3"/>
+
+
+    <!-- Classifier Node -->
+    <node pkg="state_classifier" type="state_classifier.py" name="state_classifier" output="screen" launch-prefix="python3"/>
+</launch>

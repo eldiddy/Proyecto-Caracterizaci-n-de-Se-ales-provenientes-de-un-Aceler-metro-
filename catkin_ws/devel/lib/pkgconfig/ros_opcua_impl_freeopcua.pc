@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/devel
+
+Name: ros_opcua_impl_freeopcua
+Description: Description of ros_opcua_impl_freeopcua
+Version: 0.2.0
+Cflags: -I/root/catkin_ws/src/ros_opcua_communication/ros_opcua_impl_freeopcua/include -I/root/catkin_ws/src/ros_opcua_communication/ros_opcua_impl_freeopcua/freeopcua/include
+Libs: -L${prefix}/lib -lopcuaprotocol -lopcuacore -lopcuaclient -lopcuaserver
+Requires: roscpp ros_opcua_msgs ros_opcua_srvs

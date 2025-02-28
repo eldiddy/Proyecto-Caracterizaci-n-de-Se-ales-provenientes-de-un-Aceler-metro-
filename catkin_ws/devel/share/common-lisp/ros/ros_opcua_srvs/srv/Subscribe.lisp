@@ -1,0 +1,181 @@
+; Auto-generated. Do not edit!
+
+
+(cl:in-package ros_opcua_srvs-srv)
+
+
+;//! \htmlinclude Subscribe-request.msg.html
+
+(cl:defclass <Subscribe-request> (roslisp-msg-protocol:ros-message)
+  ((node
+    :reader node
+    :initarg :node
+    :type ros_opcua_msgs-msg:Address
+    :initform (cl:make-instance 'ros_opcua_msgs-msg:Address))
+   (callback_topic
+    :reader callback_topic
+    :initarg :callback_topic
+    :type cl:string
+    :initform ""))
+)
+
+(cl:defclass Subscribe-request (<Subscribe-request>)
+  ())
+
+(cl:defmethod cl:initialize-instance :after ((m <Subscribe-request>) cl:&rest args)
+  (cl:declare (cl:ignorable args))
+  (cl:unless (cl:typep m 'Subscribe-request)
+    (roslisp-msg-protocol:msg-deprecation-warning "using old message class name ros_opcua_srvs-srv:<Subscribe-request> is deprecated: use ros_opcua_srvs-srv:Subscribe-request instead.")))
+
+(cl:ensure-generic-function 'node-val :lambda-list '(m))
+(cl:defmethod node-val ((m <Subscribe-request>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader ros_opcua_srvs-srv:node-val is deprecated.  Use ros_opcua_srvs-srv:node instead.")
+  (node m))
+
+(cl:ensure-generic-function 'callback_topic-val :lambda-list '(m))
+(cl:defmethod callback_topic-val ((m <Subscribe-request>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader ros_opcua_srvs-srv:callback_topic-val is deprecated.  Use ros_opcua_srvs-srv:callback_topic instead.")
+  (callback_topic m))
+(cl:defmethod roslisp-msg-protocol:serialize ((msg <Subscribe-request>) ostream)
+  "Serializes a message object of type '<Subscribe-request>"
+  (roslisp-msg-protocol:serialize (cl:slot-value msg 'node) ostream)
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'callback_topic))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'callback_topic))
+)
+(cl:defmethod roslisp-msg-protocol:deserialize ((msg <Subscribe-request>) istream)
+  "Deserializes a message object of type '<Subscribe-request>"
+  (roslisp-msg-protocol:deserialize (cl:slot-value msg 'node) istream)
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'callback_topic) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'callback_topic) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+  msg
+)
+(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<Subscribe-request>)))
+  "Returns string type for a service object of type '<Subscribe-request>"
+  "ros_opcua_srvs/SubscribeRequest")
+(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql 'Subscribe-request)))
+  "Returns string type for a service object of type 'Subscribe-request"
+  "ros_opcua_srvs/SubscribeRequest")
+(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Subscribe-request>)))
+  "Returns md5sum for a message object of type '<Subscribe-request>"
+  "611f15914760b79ca1b609342b109c53")
+(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Subscribe-request)))
+  "Returns md5sum for a message object of type 'Subscribe-request"
+  "611f15914760b79ca1b609342b109c53")
+(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Subscribe-request>)))
+  "Returns full string definition for message of type '<Subscribe-request>"
+  (cl:format cl:nil "ros_opcua_msgs/Address node~%string callback_topic~%~%================================================================================~%MSG: ros_opcua_msgs/Address~%string nodeId~%string qualifiedName~%~%"))
+(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Subscribe-request)))
+  "Returns full string definition for message of type 'Subscribe-request"
+  (cl:format cl:nil "ros_opcua_msgs/Address node~%string callback_topic~%~%================================================================================~%MSG: ros_opcua_msgs/Address~%string nodeId~%string qualifiedName~%~%"))
+(cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Subscribe-request>))
+  (cl:+ 0
+     (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'node))
+     4 (cl:length (cl:slot-value msg 'callback_topic))
+))
+(cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <Subscribe-request>))
+  "Converts a ROS message object to a list"
+  (cl:list 'Subscribe-request
+    (cl:cons ':node (node msg))
+    (cl:cons ':callback_topic (callback_topic msg))
+))
+;//! \htmlinclude Subscribe-response.msg.html
+
+(cl:defclass <Subscribe-response> (roslisp-msg-protocol:ros-message)
+  ((success
+    :reader success
+    :initarg :success
+    :type cl:boolean
+    :initform cl:nil)
+   (error_message
+    :reader error_message
+    :initarg :error_message
+    :type cl:string
+    :initform ""))
+)
+
+(cl:defclass Subscribe-response (<Subscribe-response>)
+  ())
+
+(cl:defmethod cl:initialize-instance :after ((m <Subscribe-response>) cl:&rest args)
+  (cl:declare (cl:ignorable args))
+  (cl:unless (cl:typep m 'Subscribe-response)
+    (roslisp-msg-protocol:msg-deprecation-warning "using old message class name ros_opcua_srvs-srv:<Subscribe-response> is deprecated: use ros_opcua_srvs-srv:Subscribe-response instead.")))
+
+(cl:ensure-generic-function 'success-val :lambda-list '(m))
+(cl:defmethod success-val ((m <Subscribe-response>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader ros_opcua_srvs-srv:success-val is deprecated.  Use ros_opcua_srvs-srv:success instead.")
+  (success m))
+
+(cl:ensure-generic-function 'error_message-val :lambda-list '(m))
+(cl:defmethod error_message-val ((m <Subscribe-response>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader ros_opcua_srvs-srv:error_message-val is deprecated.  Use ros_opcua_srvs-srv:error_message instead.")
+  (error_message m))
+(cl:defmethod roslisp-msg-protocol:serialize ((msg <Subscribe-response>) ostream)
+  "Serializes a message object of type '<Subscribe-response>"
+  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:if (cl:slot-value msg 'success) 1 0)) ostream)
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'error_message))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'error_message))
+)
+(cl:defmethod roslisp-msg-protocol:deserialize ((msg <Subscribe-response>) istream)
+  "Deserializes a message object of type '<Subscribe-response>"
+    (cl:setf (cl:slot-value msg 'success) (cl:not (cl:zerop (cl:read-byte istream))))
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'error_message) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'error_message) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+  msg
+)
+(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<Subscribe-response>)))
+  "Returns string type for a service object of type '<Subscribe-response>"
+  "ros_opcua_srvs/SubscribeResponse")
+(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql 'Subscribe-response)))
+  "Returns string type for a service object of type 'Subscribe-response"
+  "ros_opcua_srvs/SubscribeResponse")
+(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Subscribe-response>)))
+  "Returns md5sum for a message object of type '<Subscribe-response>"
+  "611f15914760b79ca1b609342b109c53")
+(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Subscribe-response)))
+  "Returns md5sum for a message object of type 'Subscribe-response"
+  "611f15914760b79ca1b609342b109c53")
+(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Subscribe-response>)))
+  "Returns full string definition for message of type '<Subscribe-response>"
+  (cl:format cl:nil "bool success~%string error_message~%~%~%"))
+(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Subscribe-response)))
+  "Returns full string definition for message of type 'Subscribe-response"
+  (cl:format cl:nil "bool success~%string error_message~%~%~%"))
+(cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Subscribe-response>))
+  (cl:+ 0
+     1
+     4 (cl:length (cl:slot-value msg 'error_message))
+))
+(cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <Subscribe-response>))
+  "Converts a ROS message object to a list"
+  (cl:list 'Subscribe-response
+    (cl:cons ':success (success msg))
+    (cl:cons ':error_message (error_message msg))
+))
+(cl:defmethod roslisp-msg-protocol:service-request-type ((msg (cl:eql 'Subscribe)))
+  'Subscribe-request)
+(cl:defmethod roslisp-msg-protocol:service-response-type ((msg (cl:eql 'Subscribe)))
+  'Subscribe-response)
+(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql 'Subscribe)))
+  "Returns string type for a service object of type '<Subscribe>"
+  "ros_opcua_srvs/Subscribe")

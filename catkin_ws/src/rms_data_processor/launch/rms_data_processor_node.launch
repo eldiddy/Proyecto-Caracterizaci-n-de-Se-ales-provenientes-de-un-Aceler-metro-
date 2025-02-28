@@ -1,0 +1,3 @@
+<launch>
+    <node name="rms_data_processor_node" pkg="rms_data_processor" type="rms_data_processor_node" output="screen" />
+</launch>

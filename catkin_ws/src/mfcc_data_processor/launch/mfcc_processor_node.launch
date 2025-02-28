@@ -1,0 +1,3 @@
+<launch>
+    <node name="mfcc_processor_node" pkg="mfcc_processor" type="mfcc_processor_node" output="screen"/>
+</launch>

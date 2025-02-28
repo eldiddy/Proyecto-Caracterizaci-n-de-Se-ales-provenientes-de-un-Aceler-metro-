@@ -1,0 +1,4 @@
+<launch>
+	<node name="scaled_data_processor_node" pkg="scaled_data_processor" type="scaled_data_processor_node" output="screen"/>
+</launch>
+

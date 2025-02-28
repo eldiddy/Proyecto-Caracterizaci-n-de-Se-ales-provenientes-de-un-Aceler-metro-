@@ -1,0 +1,32 @@
+<launch>
+    <!-- Client Node-->
+    <arg name="namespace" default="opcua"/>
+    
+    <!-- Asegurar que opcua_client se lanza primero -->
+    <node ns="$(arg namespace)" name="opcua_client" pkg="ros_opcua_impl_freeopcua" type="client_node" output="screen"/>
+
+    <!-- Esperar a que opcua_client este listo antes de lanzar el suscriptor -->
+    <node name="opcua_auto_subscriber" pkg="ros_opcua_impl_freeopcua" type="opcua_auto_subscriber" output="screen" respawn="true">
+        <param name="wait_for_services" type="bool" value="true"/>
+    </node>
+
+
+    <!-- Scaled Node-->
+	<node name="scaled_data_processor_node" pkg="scaled_data_processor" type="scaled_data_processor_node" output="screen"/>
+
+
+    <!-- RMS Node-->
+    <node name="rms_data_processor_node" pkg="rms_data_processor" type="rms_data_processor_node" output="screen" />
+
+
+    <!-- MFCC Node -->
+    <node pkg="mfcc_data_processor" type="mfcc_node.py" name="mfcc_processor_node" output="screen" launch-prefix="python3"/>
+
+
+    <!-- Classifier Node -->
+    <node pkg="state_classifier" type="state_classifier.py" name="state_classifier" output="screen" launch-prefix="python3"/>
+</launch>
+
+
+
+
